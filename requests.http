@@ -1,0 +1,49 @@
+### create a ticket
+POST http://localhost:8080/api/tickets
+Content-Type: application/json
+
+{
+  "title": "Laptop not starting",
+  "description": "Laptop shows black screen",
+  "status": "OPEN",
+  "priority": "HIGH"
+}
+
+### Get all ticket
+
+GET http://localhost:8080/api/tickets
+
+### Get ticket by ID
+
+GET http://localhost:8080/api/tickets/1
+
+### Update ticket 1
+
+PUT http://localhost:8080/api/tickets/1
+Content-Type: application/json
+
+{
+  "title": "Laptop not starting",
+  "description": "Laptop shows black screen",
+  "status": "IN_PROGRESS",
+  "priority": "HIGH"
+}
+
+### Create second ticket
+
+POST http://localhost:8080/api/tickets
+Content-Type: application/json
+
+{
+  "title": "Email login problem",
+  "description": "Unable to login to company email",
+  "status": "OPEN",
+  "priority": "MEDIUM"
+}
+
+### Delete ticket 2
+
+DELETE http://localhost:8080/api/tickets/2
+
+### all available ticket after CRUD operation
+GET http://localhost:8080/api/tickets
