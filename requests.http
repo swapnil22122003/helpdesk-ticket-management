@@ -47,3 +47,14 @@ DELETE http://localhost:8080/api/tickets/2
 
 ### all available ticket after CRUD operation
 GET http://localhost:8080/api/tickets
+
+### after the service layer build
+POST http://localhost:8080/api/tickets
+Content-Type: application/json
+
+{
+  "title": "Printer not working",
+  "description": "Office printer is offline",
+  "status": "OPEN",
+  "priority": "HIGH"
+}
