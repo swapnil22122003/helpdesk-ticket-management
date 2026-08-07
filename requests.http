@@ -15,7 +15,8 @@ GET http://localhost:8080/api/tickets
 
 ### Get ticket by ID
 
-GET http://localhost:8080/api/tickets/1
+GET http://localhost:8080/api/tickets/999
+
 
 ### Update ticket 1
 
@@ -35,8 +36,8 @@ POST http://localhost:8080/api/tickets
 Content-Type: application/json
 
 {
-  "title": "Email login problem",
-  "description": "Unable to login to company email",
+  "title": "login problem",
+  "description": "Unable to login to company laptop",
   "status": "OPEN",
   "priority": "MEDIUM"
 }

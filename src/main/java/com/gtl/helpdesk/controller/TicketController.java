@@ -3,7 +3,7 @@ package com.gtl.helpdesk.controller;
 import com.gtl.helpdesk.model.Ticket;
 import com.gtl.helpdesk.service.TicketService;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 @RestController
@@ -18,8 +18,9 @@ public class TicketController {
     }
 
     @PostMapping
-    public Ticket createTicket(@RequestBody Ticket ticket) {
-        return ticketService.createTicket(ticket);
+    public ResponseEntity<Ticket> createTicket(@RequestBody Ticket ticket) {
+        Ticket savedTicket = ticketService.createTicket(ticket);
+        return ResponseEntity.status(201).body(savedTicket);
     }
 
     @GetMapping
@@ -28,8 +29,9 @@ public class TicketController {
     }
 
     @GetMapping("/{id}")
-    public Ticket getTicketById(@PathVariable Long id) {
-        return ticketService.getTicketById(id).orElse(null);
+    public ResponseEntity<Ticket> getTicketById(@PathVariable Long id) {
+        Ticket ticket = ticketService.getTicketById(id);
+        return ResponseEntity.ok(ticket);
     }
 
     @PutMapping("/{id}")

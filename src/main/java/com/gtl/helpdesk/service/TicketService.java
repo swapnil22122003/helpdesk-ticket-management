@@ -1,9 +1,9 @@
 package com.gtl.helpdesk.service;
 
+import com.gtl.helpdesk.exception.TicketNotFoundException;
 import com.gtl.helpdesk.model.Ticket;
 import com.gtl.helpdesk.repository.TicketRepository;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -23,8 +23,10 @@ public class TicketService {
         return ticketRepository.findAll();
     }
 
-    public Optional<Ticket> getTicketById( Long id) {
-        return ticketRepository.findById(id);
+    public Ticket getTicketById( Long id) {
+
+        return ticketRepository.findById(id)
+        .orElseThrow(()->new TicketNotFoundException(id));
     }
 
     public Ticket updateTicket(Long id, Ticket updatedTicket){
