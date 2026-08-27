@@ -59,3 +59,47 @@ Content-Type: application/json
   "status": "OPEN",
   "priority": "HIGH"
 }
+### responce filter by status
+GET http://localhost:8080/api/tickets/status/OPEN
+
+### responce filter by priority
+GET http://localhost:8080/api/tickets/priority/HIGH
+
+### filtering by status and priority
+GET http://localhost:8080/api/tickets/status/OPEN/priority/HIGH
+
+### filtering using request and geting responce
+GET http://localhost:8080/api/tickets/filter
+
+### filtering using request and geting status responce
+GET http://localhost:8080/api/tickets/filter?status=OPEN
+
+
+### filtering using request and geting priority responce
+GET http://localhost:8080/api/tickets/filter?priority=HIGH
+
+
+### filtering using request and geting status and priority responce
+GET http://localhost:8080/api/tickets/filter?status=OPEN&priority=HIGH
+
+### Ticket responce as ID Asending
+GET http://localhost:8080/api/tickets
+
+### ticket responce as ID Decending
+GET http://localhost:8080/api/tickets?sortBy=id&direction=desc
+
+### sorting by priority
+GET http://localhost:8080/api/tickets?sortBy=priority&direction=asc
+
+### sorting and filtering together
+GET http://localhost:8080/api/tickets/filter?status=OPEN&sortBy=id&direction=desc
+
+### test priority and sorting
+GET http://localhost:8080/api/tickets/filter?priority=HIGH&sortBy=id&direction=desc
+
+### sorting with paging and fixed number of size
+GET http://localhost:8080/api/tickets?page=1&size=2&sortBy=id&direction=desc
+
+### Combine Filtering + Sorting + Pagination in one endpoint
+
+GET http://localhost:8080/api/tickets/filter?status=OPEN&priority=HIGH&sortBy=id&direction=desc&page=0&size=2
