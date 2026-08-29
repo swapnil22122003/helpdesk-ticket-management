@@ -78,3 +78,4 @@ Spring Data JPA / Hibernate
       │
       ▼
 MySQL Database
+```
